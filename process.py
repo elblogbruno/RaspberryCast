@@ -12,8 +12,8 @@ def launchvideo(url, config, sub=False):
 
     os.system("echo -n q > /tmp/cmd &")  # Kill previous instance of OMX
 
-    if config["new_log"]:
-        os.system("sudo fbi -T 1 -a --noverbose images/processing.jpg")
+    #if config["new_log"]:
+        #os.system("sudo fbi -T 1 -a --noverbose images/processing.jpg")
 
     logger.info('Extracting source video URL...')
     out = return_full_url(url, sub=sub, slow_mode=config["slow_mode"])
@@ -184,8 +184,9 @@ def playWithOMX(url, sub, width="", height="", new_log=False):
                 os.system("echo . > /tmp/cmd &")  # Start signal for OMXplayer
             else:
                 logger.info("Playlist empty, skipping.")
-                if new_log:
-                    os.system("sudo fbi -T 1 -a --noverbose images/ready.jpg")
+                os.system("killall -3 fbi")
+                #if new_log:
+                    #os.system("sudo fbi -T 1 -a --noverbose images/ready.jpg")
 
 
 def setState(state):
