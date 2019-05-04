@@ -48,8 +48,8 @@ except OSError as e:
     if e.errno != 17:
         raise
 
-if config["new_log"]:
-    os.system("sudo fbi -T 1 --noverbose -a  images/ready.jpg")
+#if config["new_log"]:
+    #os.system("sudo fbi -T 1 --noverbose -a  images/ready.jpg")
 
 setState("0")
 open('video.queue', 'w').close()  # Reset queue
